@@ -1,0 +1,27 @@
+> horse track background wtih a question board and a timer board connected
+> questions shown on board
+> game master read questions it out
+> teams discuss and each team gives their answer
+    If correct -> press their key (1–4) -> perspected horse moves forward
+    If wrong/no answer -> stay
+> either move to the next question or skip with SPACE
+> shown (answered/skipped) questions will not appear again
+
+
+> 10 steps per horse to finish
+> step sizes are randomized but always total the full track
+> each horse has its own random distribution of steps (so not every team moves in the same "chunky" pattern)
+> a team that gets 10 correct answers guarantees finishing
+> finished team will not answer more questions and assigned key is disabled
+
+
+> whole game = 10 minutes.
+> each question: let them think for around 15 seconds before asking for skip (skip if all decided)
+> if time runs out -> decide winners by who is farthest along the track
+
+> only one winner
+> when the winner is determined, stops every keypress and shows a winning banner with winner's name and an image.
+
+> question pool: 30 prepared questions. more than enough to cover 10 steps + some skipped ones
+
+

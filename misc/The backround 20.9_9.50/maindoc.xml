@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DOC PUBLIC '-//KDE//DTD krita 2.0//EN' 'http://www.calligra.org/DTD/krita-2.0.dtd'>
+<DOC xmlns="http://www.calligra.org/DTD/krita" kritaVersion="5.2.11" syntaxVersion="2.0" editor="Krita">
+ <IMAGE mime="application/x-kra" name="The backround" profile="sRGB-elle-V2-srgbtrc.icc" colorspacename="RGBA" description="" width="1536" x-res="300" y-res="300" height="841">
+  <layers>
+   <layer locked="0" onionskin="0" name="blend grass and dirt" nodetype="paintlayer" visible="1" colorspacename="RGBA" opacity="255" y="0" filename="layer2" channelflags="" colorlabel="0" compositeop="normal" x="0" intimeline="1" channellockflags="1111" collapsed="0" uuid="{8e362957-4d36-4d2c-a405-3ab9a48b5f4a}"/>
+   <layer y="12" selected="true" channelflags="" x="-94" locked="0" compositeop="normal" channellockflags="1111" opacity="255" collapsed="0" colorlabel="0" visible="1" filename="layer3" intimeline="0" name="Fencing" onionskin="0" nodetype="paintlayer" colorspacename="RGBA" uuid="{8160e663-66ba-40a5-bcad-bfa6460eb08c}"/>
+   <layer locked="0" onionskin="0" name="Watermark" nodetype="paintlayer" visible="1" colorspacename="RGBA" opacity="43" y="0" filename="layer4" channelflags="" colorlabel="0" compositeop="normal" x="0" intimeline="1" channellockflags="1111" collapsed="0" uuid="{810fe9fd-9e7a-48fd-b0dd-c9c8b5b74a4a}"/>
+   <layer locked="0" onionskin="0" name=" Render Board" nodetype="paintlayer" visible="1" colorspacename="RGBA" opacity="255" y="0" filename="layer5" channelflags="" colorlabel="0" compositeop="normal" x="0" intimeline="1" channellockflags="1111" collapsed="0" uuid="{18799508-9c3b-45d7-ab6d-8366a212853d}"/>
+   <layer locked="0" onionskin="0" name="Board " nodetype="paintlayer" visible="1" colorspacename="RGBA" opacity="255" y="0" filename="layer6" channelflags="" colorlabel="0" compositeop="normal" x="0" intimeline="1" channellockflags="" collapsed="0" uuid="{0c1d5220-2f7e-4568-b4d0-6426693619da}"/>
+   <layer locked="0" onionskin="0" name="Paint Layer 1 (pasted)" nodetype="paintlayer" visible="0" colorspacename="RGBA" opacity="128" y="0" filename="layer7" channelflags="" colorlabel="0" compositeop="normal" x="0" intimeline="0" channellockflags="" collapsed="0" uuid="{034dcc4e-f722-4b6b-adf8-f903f79e3b44}"/>
+   <layer locked="0" onionskin="0" name="Grass" nodetype="paintlayer" visible="1" colorspacename="RGBA" opacity="255" y="0" filename="layer8" channelflags="" colorlabel="0" compositeop="normal" x="0" intimeline="1" channellockflags="1111" collapsed="0" uuid="{d2dd211e-feda-44ff-bc68-d1e4bd71eb14}"/>
+   <layer locked="0" onionskin="0" name="Sky" nodetype="paintlayer" visible="1" colorspacename="RGBA" opacity="255" y="0" filename="layer9" channelflags="" colorlabel="0" compositeop="normal" x="0" intimeline="1" channellockflags="1111" collapsed="0" uuid="{b7855df1-706b-4e40-bfe5-ff8fd3ba7d9b}"/>
+  </layers>
+  <ProjectionBackgroundColor ColorData="AAAAAA=="/>
+  <GlobalAssistantsColor SimpleColorData="176,176,176,255"/>
+  <MirrorAxis>
+   <mirrorHorizontal type="value" value="0"/>
+   <mirrorVertical type="value" value="0"/>
+   <lockHorizontal type="value" value="0"/>
+   <lockVertical type="value" value="0"/>
+   <hideHorizontalDecoration type="value" value="0"/>
+   <hideVerticalDecoration type="value" value="0"/>
+   <handleSize type="value" value="32"/>
+   <horizontalHandlePosition type="value" value="318"/>
+   <verticalHandlePosition type="value" value="64"/>
+   <axisPosition type="pointf" y="420.5" x="983"/>
+  </MirrorAxis>
+  <Palettes/>
+  <resources/>
+  <animation>
+   <framerate type="value" value="24"/>
+   <range type="timerange" to="100" from="0"/>
+   <currentTime type="value" value="0"/>
+  </animation>
+ </IMAGE>
+</DOC>

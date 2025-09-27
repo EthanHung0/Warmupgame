@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 import sys
 import random
+import pickle
 
 
 
@@ -88,88 +89,8 @@ class Horse:
 # Game Class
 
 class Game:
-    questions = [
-    {
-        "q": "Con vật nào là loài động vật lớn nhất trên Trái Đất?",
-        "answer": "A. Cá voi xanh",
-        "options": ["A. Cá voi xanh", "B. Voi", "C. Cá mập", "D. Gấu bắc cực"]
-    },
-    {
-        "q": "Quốc gia nào có diện tích lớn nhất thế giới?",
-        "answer": "C. Nga",
-        "options": ["A. Hoa Kỳ", "B. Trung Quốc", "C. Nga", "D. Canada"]
-    },
-    {
-        "q": "Thủ đô của Pháp là gì?",
-        "answer": "B. Paris",
-        "options": ["A. London", "B. Paris", "C. Berlin", "D. Rome"]
-    },
-    {
-        "q": "Quốc gia nào là nơi sản xuất cà phê lớn nhất thế giới?",
-        "answer": "A. Brazil",
-        "options": ["A. Brazil", "B. Colombia", "C. Việt Nam", "D. Ấn Độ"]
-    },
-    {
-        "q": "Bộ môn thể thao nào được coi là 'vua của các môn thể thao'?",
-        "answer": "A. Bóng đá",
-        "options": ["A. Bóng đá", "B. Bóng rổ", "C. Quần vợt", "D. Cầu lông"]
-    },
-    {
-        "q": "Nước nào được biết tới là có tượng nữ thần tự do?",
-        "answer": "C. New York",
-        "options": ["A. Paris", "B. London", "C. New York", "D. Tokyo"]
-    },
-    {
-        "q": "Ai ghi bàn nhiều nhất lịch sử bóng đá?",
-        "answer": "A. Cristiano Ronaldo",
-        "options": ["A. Cristiano Ronaldo", "B. Lionel Messi", "C. Josef Bican", "D. Romário"]
-    },
-    {
-        "q": "Nam Cao là tác giả của tác phẩm nào đã được học trong sách Ngữ văn 11?",
-        "answer": "C. Chí Phèo",
-        "options": ["A. Lão Hạc", "B. Vợ nhặt", "C. Chí Phèo", "D. Đời thừa"]
-    },
-    {
-        "q": "Quê của nhà văn Kim Lân là tỉnh nào?",
-        "answer": "A. Bắc Ninh",
-        "options": ["A. Bắc Ninh", "B. Bắc Giang", "C. Hà Nội", "D. Hải Dương"]
-    },
-    {
-        "q": "Bức tường Berlin dùng để làm gì?",
-        "answer": "B. Ngăn cách Đông và Tây Đức",
-        "options": ["A. Bảo vệ người dân Đức", "B. Ngăn cách Đông và Tây Đức", "C. Ngăn quân Pháp xâm lược", "D. Là biểu tượng hòa bình"]
-    },
-    {
-        "q": "Bức tranh 'Đêm đầy sao' do ai vẽ?",
-        "answer": "C. Vincent van Gogh",
-        "options": ["A. Leonardo da Vinci", "B. Pablo Picasso", "C. Vincent van Gogh", "D. Claude Monet"]
-    },
-    {
-        "q": "Cơ quan nào có chức năng lọc máu?",
-        "answer": "D. Thận",
-        "options": ["A. Tim", "B. Phổi", "C. Gan", "D. Thận"]
-    },
-    {
-        "q": "Cơ quan nào có chức năng tống máu đi khắp cơ thể?",
-        "answer": "B. Tim",
-        "options": ["A. Gan", "B. Tim", "C. Não", "D. Thận"]
-    },
-    {
-        "q": "Loài động vật nào đứng để ngủ?",
-        "answer": "B. Ngựa",
-        "options": ["A. Bò", "B. Ngựa", "C. Voi", "D. Hươu cao cổ"]
-    },
-    {
-        "q": "Ngày Nhà giáo Việt Nam là ngày nào?",
-        "answer": "B. 20/11",
-        "options": ["A. 20/10", "B. 20/11", "C. 26/3", "D. 2/9"]
-    },
-    {
-        "q": "Ngày 20/10 là ngày gì?",
-        "answer": "B. Ngày Phụ nữ Việt Nam",
-        "options": ["A. Ngày Giải phóng miền Nam", "B. Ngày Phụ nữ Việt Nam", "C. Ngày Quốc tế Lao động", "D. Ngày Quốc tế Phụ nữ"]
-    }
-]
+    with open("Questions.pkl","rb") as f:
+        questions = pickle.load(f)
 
     # --------------------------------------------------------------------------------
     # initializing

@@ -170,7 +170,7 @@ class Game:
 
         # draw input screen
             DISPLAY_SURFACE.fill((0, 0, 0))
-            prompt = alt_font.render(f"Input Horse's team {len(names) + 1 if len(names) < 4 else 4}:", True, (255, 255, 255))
+            prompt = alt_font.render(f"Input team {len(names) + 1 if len(names) < 4 else 4}'s Horse name:", True, (255, 255, 255))
             input_text = alt_font.render(current, True, (255, 215, 0))
             DISPLAY_SURFACE.blit(prompt, (100, HEIGHT // 2 - 40))
             DISPLAY_SURFACE.blit(input_text, (100, HEIGHT // 2))

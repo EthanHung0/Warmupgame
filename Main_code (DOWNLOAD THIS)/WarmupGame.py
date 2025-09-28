@@ -89,8 +89,6 @@ class Horse:
         steps_txt = alt_font.render(f"{self.index}", True, (100, 100, 100))
         steps_txt.set_alpha(30)
         overlay.blit(steps_txt,(50, self.y))
-        DISPLAY_SURFACE.blit(overlay,(0,0))
-        DISPLAY_SURFACE.blit(self.image, (self.x, self.y))
 
 # ================================================================================
 # Game Class
@@ -206,6 +204,10 @@ class Game:
     def drawHorses(self) -> None:
         for horse in self.horses:
             horse.draw()
+
+        DISPLAY_SURFACE.blit(overlay,(0,0))
+        for horse in self.horses:
+            DISPLAY_SURFACE.blit(horse.image, (horse.x, horse.y))
 
 
     def drawTimer(self) -> None:

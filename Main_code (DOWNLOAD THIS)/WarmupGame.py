@@ -12,13 +12,15 @@ info = pygame.display.Info() # 1536 864
 WIDTH, HEIGHT = info.current_w, info.current_h - 50 # 1536 814
 DISPLAY_SURFACE = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
 
+overlay = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
+
 background = pygame.image.load("bg.png").convert()
 background = pygame.transform.smoothscale(background, (WIDTH, HEIGHT))
 
 pygame.display.set_caption('Horse Racing')
 clock = pygame.time.Clock()
 font = pygame.font.Font("DejaVuSans.ttf", 25)
-alt_font = pygame.font.Font("KoushikiSans/KoushikiSans-Regular.ttf", 30)
+alt_font = pygame.font.Font("KoushikiSans-Regular.ttf", 30)
 
 GAME_TIME = 600000 #ms
 QUESTION_TIME = 15000
@@ -78,12 +80,16 @@ class Horse:
     def draw(self) -> None:
         # draw track line
         pygame.draw.line(
-            DISPLAY_SURFACE,
-            (100, 100, 100),
+            overlay,
+            (100, 100, 100, 50),
             (100, self.y + 50),
-            (finish_line + 50, self.y + 50)
+            (finish_line + 50, self.y + 50),
+            width = 3
             )
-        # draw horse
+        steps_txt = alt_font.render(f"{self.index}", True, (100, 100, 100))
+        steps_txt.set_alpha(30)
+        overlay.blit(steps_txt,(50, self.y))
+        DISPLAY_SURFACE.blit(overlay,(0,0))
         DISPLAY_SURFACE.blit(self.image, (self.x, self.y))
 
 # ================================================================================
@@ -96,7 +102,7 @@ class Game:
     # --------------------------------------------------------------------------------
     # initializing
     def __init__(self):
-        self._horses:list[Horse] = [Horse(pygame.image.load(f"hors{i+1}.png").convert_alpha(), 320 + 100 * i, h) for i,h in enumerate(self._get_team_names(4),0)]
+        self._horses:list[Horse] = [Horse(pygame.image.load(f"hors{i+1}.png").convert_alpha(), 330 + 100 * i, h) for i,h in enumerate(self._get_team_names(4),0)]
         self._winner:list[Horse] | Horse = None
         self._frozen_time = 0
         self._banner_pos = WIDTH
@@ -203,6 +209,7 @@ class Game:
 
 
     def drawTimer(self) -> None:
+        # winning mechanism
         now = pygame.time.get_ticks()
         if not self._winner:
             main_timer = max(0, GAME_TIME - now)
@@ -216,6 +223,9 @@ class Game:
                 self._winners = [h for h in self._horses if h.x == highest_val]
                 self._winner = self._winners if len(self._winners) > 1 else self._winners[0]
 
+        if self._finalspurt_Mode:
+            return
+
         if main_timer:
             main_min = main_timer // 60000
             main_sec = (main_timer % 60000) // 1000
@@ -223,7 +233,7 @@ class Game:
             timer_txt = alt_font.render(f"{main_min:02}:{main_sec:02}", True, (255,255,255))
         else:
             timer_txt = alt_font.render(f"00:00", True, (255,255,255))
-        DISPLAY_SURFACE.blit(timer_txt, (WIDTH-230, 37))
+        DISPLAY_SURFACE.blit(timer_txt, (WIDTH-215, 40))
 
 
     def drawWinningBanner(self) -> None:
@@ -262,10 +272,10 @@ class Game:
                 remaining = max(0, duration - elapsed)
                 seconds = remaining // 1000 if remaining else 0
                 q_timer_txt = alt_font.render(f"{seconds:02}", True, (255,255,255) if remaining > 5000 else (255,64,64))
-                DISPLAY_SURFACE.blit(q_timer_txt, (WIDTH-200, 120))
+                DISPLAY_SURFACE.blit(q_timer_txt, (WIDTH-190, 110))
         else:
             answer_txt = alt_font.render(f"{qdata["answer"]}", True, (255,255,255))
-            DISPLAY_SURFACE.blit(answer_txt, (WIDTH-200, 120))
+            DISPLAY_SURFACE.blit(answer_txt, (WIDTH-180, 110))
 
     def drawQuestion(self) -> None:
         if self.winner:
@@ -281,13 +291,22 @@ class Game:
             option_txt = font.render(option, True, (255,255,255))
             col = i % 2
             row = i // 2
-            DISPLAY_SURFACE.blit(option_txt,(220 + col*380, 110 + row*50))
+            DISPLAY_SURFACE.blit(option_txt, (220 + col*380, 110 + row*50))
 
         # 15 seconds timer for each question
         if not self._finalspurt_Mode:
             self._question_timer(qdata, 15000)
         else:
             self._question_timer(qdata, 10000)
+
+
+    def drawFinalSpurtMode(self):
+        if not self._finalspurt_Mode:
+            return
+
+        for i, txt in enumerate(["Final", "Spurt"],0):
+            mode_txt = alt_font.render(txt, True, (255,32,32))
+            DISPLAY_SURFACE.blit(mode_txt, (WIDTH-215 + i*10, 28 + i*25))
 
 
 # ================================================================================
@@ -297,11 +316,13 @@ running = True
 
 
 while running: #main loop
+    overlay.fill((0, 0, 0, 0))
     DISPLAY_SURFACE.blit(background,(0,0))
 
     GameSystem.drawHorses()
     GameSystem.drawTimer()
     GameSystem.drawQuestion()
+    GameSystem.drawFinalSpurtMode() # doesnt draw anything if not in final spurt mode
 
     if GameSystem._winner: # display OUT OF TIME/OUT OF QUESTION if either conditions are met
         alt_message = "OUT OF TIME" if pygame.time.get_ticks() > GAME_TIME else ("OUT OF QUESTIONS" if not GameSystem.questions else None)
@@ -331,6 +352,11 @@ while running: #main loop
                 # skipping question
                 if event.key == K_SPACE:
                     GameSystem.resetQuestion()
+
+                elif event.key == K_l:
+                    if not GameSystem.finalspurt_Mode:
+                        GameSystem.finalspurt_Mode = True
+
 
                 # assigning move keys
                 mapping = {

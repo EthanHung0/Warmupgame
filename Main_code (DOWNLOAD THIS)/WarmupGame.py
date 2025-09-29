@@ -293,7 +293,7 @@ class Game:
             option_txt = font.render(option, True, (255,255,255))
             col = i % 2
             row = i // 2
-            DISPLAY_SURFACE.blit(option_txt, (220 + col*380, 110 + row*50))
+            DISPLAY_SURFACE.blit(option_txt, (220 + col*400, 110 + row*50))
 
         # 15 seconds timer for each question
         if not self._finalspurt_Mode:

@@ -52,6 +52,11 @@ questions = [
         "options": ["A. L. da Vinci", "B. P. Picasso", "C. V. van Gogh", "D. Claude Monet"]
     },
     {
+        "q": "Bức tường Berlin dùng để làm gì?",
+        "answer": "B.",
+        "options": ["A. Bảo vệ người dân Đức", "B. Ngăn cách Đông và Tây Đức", "C. Ngăn quân Pháp xâm lược", "D. Là biểu tượng hòa bình"]
+    },
+    {
         "q": "Cơ quan nào có chức năng lọc máu?",
         "answer": "D",
         "options": ["A. Tim", "B. Phổi", "C. Gan", "D. Thận"]
@@ -155,6 +160,56 @@ questions = [
         "q": "Albert Einstein là nhà gì?",
         "answer": "C",
         "options": ["A. Nhà toán học", "B. Nhà văn", "C. Nhà vật lí", "D. Nhà triết học"]
+    },
+    {
+        "q": "Cái gì luôn ở trước mặt bạn nhưng bạn không bao giờ thấy nó?",
+        "answer": "A",
+        "options": ["A. Tương lai", "B. Tin tức", "C. Gương", "D. Bóng tôi"]
+    },
+    {
+        "q": "Cái gì càng nhiều càng nhẹ?",
+        "answer": "C",
+        "options": ["A. Sắt", "B. Lông vũ", "C. Lỗ hổng", "D. Nước"]
+    },
+    {
+        "q": "Cái gì có nhiều thành phần nhưng không hề nặng, có thể dùng để che mưa?",
+        "answer": "A",
+        "options": ["A. Ô (dù)", "B. Quần áo", "C. Mũ bảo hiểm", "D. Túi nilon"]
+    },
+    {
+        "q": "Một chiếc thuyền chở gạch nhưng không ướt; vì sao?",
+        "answer": "C",
+        "options": ["A. Gạch không thấm nước", "B. Thuyền có mái che", "C. Vì gạch chưa rơi xuống nước", "D. Thuyền không trên sông"]
+    },
+    {
+        "q": "Thương hiệu xe nào nổi tiếng tiên phong về xe điện toàn cầu?",
+        "answer": "B",
+        "options": ["A. Toyota", "B. Tesla", "C. Ford", "D. BMW"]
+    },
+    {
+        "q": "Công nghệ nào cho phép thanh toán chỉ cần chạm điện thoại vào máy quét?",
+        "answer": "A",
+        "options": ["A. NFC", "B. QR Code", "C. Bluetooth", "D. WiFi"]
+    },
+    {
+        "q": "Loại kính thực tế ảo tăng cường (AR) đầu tiên Google giới thiệu năm 2013 tên là?",
+        "answer": "B",
+        "options": ["A. Google Lens", "B. Google Glass", "C. Google VR", "D. Google Pixel"]
+    },
+    {
+        "q": "Công nghệ 5G so với 4G nổi bật nhờ đặc điểm nào?",
+        "answer": "A",
+        "options": ["A. Tốc độ cao, độ trễ thấp", "B. Chỉ dùng gọi điện thoại", "C. Rẻ hơn 3G", "D. Không cần internet"]
+    },
+    {
+        "q": "Cái gì bạn dùng hằng ngày nhưng hầu như không nhìn thấy nó?",
+        "answer": "D",
+        "options": ["A. Dữ liệu số", "B. Pin điện thoại", "C. WiFi", "D. Điện"]
+    },
+    {
+        "q": "Hệ điều hành nào sau đây KHÔNG phải là mã nguồn mở (open source)?",
+        "answer": "C",
+        "options": ["A. Linux", "B. Android", "C. iOS", "D. Ubuntu"]
     }
 ]
 
